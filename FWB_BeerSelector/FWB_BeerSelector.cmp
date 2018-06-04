@@ -1,0 +1,36 @@
+<aura:component controller="BeerContacts" access="global" extends="c:Base">
+    
+    <aura:attribute name="mode" type="string" access="global" default="select" />
+    
+    <aura:attribute name="beers" access="private" type="Object[]" />
+    <aura:attribute name="selectedBeerId" access="public" type="Id" default="" />
+    <aura:attribute name="labelPrefix" access="public" type="String" default="Friends with "/>
+    
+    <aura:handler name="change" value="{!v.selectedBeerId}" action="{!c.onBeerChange}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:registerEvent name="onBeerSelected" type="c:FWB_BeerSelected"/>
+    
+    <aura:if isTrue="{!v.mode == 'select'}">
+            <div>
+                <lightning:select name="beerId"
+                     label="Select Beer"
+                     variant="label-hidden"
+                     value="{!v.selectedBeerId}">              
+                   <option value="">Select Beer</option>    
+                   <aura:iteration items="{!v.beers}" var="thisBeerGroup">
+                       <optgroup label="{!thisBeerGroup.label}">
+                     <aura:iteration items="{!thisBeerGroup.items}" var="thisBeer">
+                         <option value="{!thisBeer.name}">{!v.labelPrefix}{!thisBeer.label}</option>
+                       </aura:iteration>
+                    </optgroup>
+                   </aura:iteration>
+                </lightning:select>
+            </div>
+        <aura:set attribute="else">
+        	<lightning:tree items="{!v.beers}" 
+                            header=""
+                            onselect="{!c.onTreeSelect}"/>
+        </aura:set>
+    </aura:if>
+</aura:component>

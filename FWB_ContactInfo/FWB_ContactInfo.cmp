@@ -1,0 +1,24 @@
+<aura:component >
+    <aura:attribute name="contactId" access="global" type="Id" />
+    <aura:attribute name="contact" access="private" type="Object" />
+    <aura:attribute name="recordError" access="private" type="String" />
+    
+    <aura:handler name="change" value="{!v.contactId}" action="{!c.onContactIdChange}" />
+    
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.contactId}"
+                      targetFields="{!v.contact}"
+                      targetError="{!v.recordError}"
+                      fields="Name,Email,Phone,Beer__r.Name"
+                      />
+    
+    {!v.recordError}<br />
+    
+    <div id="contactrecord">
+    <div id="contactname">{!v.contact.Name}</div>
+    <div id="contactemail"><lightning:formattedEmail value="{!v.contact.Email}" /></div>
+    <div id="contactphone"><lightning:formattedPhone value="{!v.contact.Phone}" /></div>
+    <div id="beername">{!v.contact.Beer__r.Name}</div>
+    </div>
+    
+</aura:component>

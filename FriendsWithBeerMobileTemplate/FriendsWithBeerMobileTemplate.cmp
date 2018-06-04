@@ -1,0 +1,49 @@
+<aura:component implements="lightning:appHomeTemplate" description="Friends with Beer Mobile Phone Template">
+    <aura:attribute name="region1" type="Aura.Component[]" /> 
+    
+    <style>
+        .oneAnchorHeader {
+        	display: none;
+        } 
+        .scroller.actionBarPlugin  {
+        	padding-bottom: 0px !important;
+        }
+        
+        .scroller.actionBarPlugin, .oneFlexipage, .flexipagePage,  .pageBody,  .mainbody, .mainbody > div {
+        	height: 100%
+        }
+        
+        .oneFlexipage .pageBody {
+        	margin-top: 0px;
+        }
+          
+        .spacer-pull-to-load-more {
+        	height: 0px !important;
+        }
+        
+        .slds-table {
+        	background-color: rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        .slds-card__header {
+            margin: 0px !important;
+            padding: 0px !important;
+        }
+        
+    </style>
+    
+    <aura:handler name="render" 
+                  value="{!this}" 
+                  action="{!c.onRender}"/>
+    
+    
+    <ui:scrollerWrapper class="maxHeight">
+        <div class="mainbody" aura:Id="mainbody">
+            <div class="fwbheader slds-align_absolute-center">Friends with Beer</div>
+            
+            {!v.region1}
+        </div>
+    </ui:scrollerWrapper>
+    
+    
+</aura:component>

@@ -1,0 +1,5 @@
+<design:component >
+	   <design:attribute name="title" />
+       <design:attribute name="height" />
+       <design:attribute name="position" datasource="inherit,absolute,fixed" />
+</design:component>

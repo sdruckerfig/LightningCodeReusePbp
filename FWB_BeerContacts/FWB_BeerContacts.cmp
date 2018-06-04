@@ -1,0 +1,35 @@
+<aura:component controller="BeerContacts" extends="c:Base" implements="flexipage:availableForAllPageTypes">  
+    
+    <aura:attribute name="beerId" type="Id" access="global" />
+    <aura:attribute name="contacts" type="Contact[]" access="private" />
+    
+    <aura:handler name="change" value="{!v.beerId}" action="{!c.onBeerIdChange}" />
+    
+    <aura:handler name="onselect" 
+                  event="c:DataGridTableRecordSelected" 
+                  action="{!c.onContactSelected}" />
+    
+    <aura:registerEvent name="oncontactselected" type="c:FWB_ContactSelected" />
+    
+    <style>
+    	.slds-table {
+        	background-color: rgba(255,255,255,0.3);
+        }
+    </style>
+        
+    <c:DataGrid data="{!v.contacts}" pkField="Id">
+        
+        <c:DataGridColumn fieldName="Name" 
+                          label="Name" />
+        <c:DataGridColumn fieldName="Title" 
+                          label="Title" 
+                          hidden="true" />
+        <c:DataGridColumn fieldName="Email" 
+                          label="E-Mail" 
+                          type="email"
+                          hidden="true"/>
+        
+    </c:DataGrid>
+    
+    
+</aura:component>

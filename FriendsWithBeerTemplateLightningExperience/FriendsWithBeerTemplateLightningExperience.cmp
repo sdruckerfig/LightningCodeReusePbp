@@ -1,0 +1,25 @@
+<aura:component implements="lightning:appHomeTemplate" description="Friends with Beer Lightning Experience Template">
+    <aura:attribute name="col1" type="Aura.Component[]" />
+    <aura:attribute name="col2" type="Aura.Component[]" />
+	<aura:attribute name="col3" type="Aura.Component[]" />
+   
+    <lightning:layout horizontalAlign="space" multipleRows="true">
+    	<lightning:layoutItem flexibility="auto" 
+                              padding="around-small" 
+                              size="12" 
+                              largeDeviceSize="3" 
+                              mediumDeviceSize="2" smallDeviceSize="12">
+          {!v.col1}
+        </lightning:layoutItem>
+        
+        <lightning:layoutItem flexibility="auto" padding="around-small" size="12" largeDeviceSize="6" mediumDeviceSize="7" smallDeviceSize="12">
+         {!v.col2}
+        </lightning:layoutItem>
+        
+        <lightning:layoutItem flexibility="auto" padding="around-small" size="12" largeDeviceSize="3" mediumDeviceSize="3" smallDeviceSize="12">
+          {!v.col3}
+        </lightning:layoutItem>
+    </lightning:layout>
+        
+
+</aura:component>

@@ -1,0 +1,17 @@
+<design:component label="Friends with Beer Lightning Experience Template">
+    
+    <flexipage:template >
+            <flexipage:region name="col1" defaultWidth="Small">
+                <flexipage:formfactor type="MEDIUM" width="SMALL" />
+                <flexipage:formfactor type="LARGE" width="SMALL" />
+            </flexipage:region>
+         	<flexipage:region name="col2" defaultWidth="Large">
+                <flexipage:formfactor type="Medium" width="Large" />
+                <flexipage:formfactor type="Large" width="Large" />
+            </flexipage:region>
+         	<flexipage:region name="col3" defaultWidth="Small">
+                 <flexipage:formfactor type="Large" width="Large" />
+                <flexipage:formfactor type="Medium" width="SMALL" />
+            </flexipage:region>
+       </flexipage:template>
+</design:component>

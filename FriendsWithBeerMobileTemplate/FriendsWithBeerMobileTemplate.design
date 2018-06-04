@@ -1,0 +1,8 @@
+<design:component label="Friends with Beer">
+    
+    <flexipage:template >
+            <flexipage:region name="region1" defaultWidth="Small">
+                <flexipage:formfactor type="MEDIUM" width="SMALL" />
+            </flexipage:region>
+    </flexipage:template>
+</design:component>

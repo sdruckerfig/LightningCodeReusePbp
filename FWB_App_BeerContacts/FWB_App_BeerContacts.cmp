@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="title" type="String" access="global" default=""/>
+    <aura:attribute name="beerId" type="String" access="private" />
+    <aura:attribute name="height" type="String" access="global" default="" />
+    <aura:attribute name="position" type="String" access="global" default="inherit" />
+    
+    <aura:handler event="c:FWB_App_BeerSelected" action="{!c.onBeerSelected}"/>
+     
+    <aura:registerEvent name="FWB_App_ContactSelected" type="c:FWB_App_ContactSelected"/>
+    
+    <aura:if isTrue="{!v.title == ''}">	
+        <aura:if isTrue="{!v.height != ''}">
+            <div style="{! 'width:100%; position: ' + v.position + ';' + 'height:' + v.height + ';'}">
+                <ui:scrollerwrapper class="maxheight">
+                <c:FWB_BeerContacts beerId="{!v.beerId}" oncontactselected="{!c.onContactSelected}"/>
+            	</ui:scrollerwrapper>   
+            </div>
+            <aura:set attribute="else">
+                <c:FWB_BeerContacts beerId="{!v.beerId}" oncontactselected="{!c.onContactSelected}"/>
+            </aura:set>
+        </aura:if>        
+        <aura:set attribute="else">
+            <lightning:card title="{!v.title}">
+                <c:FWB_BeerContacts beerId="{!v.beerId}" oncontactselected="{!c.onContactSelected}" />
+            </lightning:card>
+        </aura:set>
+    </aura:if>
+</aura:component>

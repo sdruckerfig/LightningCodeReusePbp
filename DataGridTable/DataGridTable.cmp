@@ -1,0 +1,63 @@
+<aura:component access="global">
+    
+    
+    <aura:attribute name="cols" 
+                    type="Object[]" 
+                    access="GLOBAL" 
+                    description="The grid columns."/> 
+    
+    <aura:attribute name="rows" 
+                    type="Object[]" 
+                    access="GLOBAL" 
+                    description="The grid row data."/>
+  
+    <aura:attribute name="hideSmallFieldLabels" type="Boolean" access="public" default="true" />
+    
+    <aura:attribute name="selectedRow"
+                    type="Object"
+                    access="GLOBAL" />
+   
+     <aura:attribute name="tableClass"
+                    type="String"
+                    access="GLOBAL" 
+                    default="slds-table slds-table--bordered slds-max-medium-table--stacked" />
+    
+    <aura:registerEvent name="onselect" type="c:DataGridTableRecordSelected"/>
+
+     <aura:handler name="init" 
+                  value="{!this}" 
+                  action="{!c.doInit}"/>
+    
+    <table class="{!v.tableClass}">
+        <thead>
+            <tr class="slds-text-heading--label">
+                <aura:iteration items="{!v.cols}" var="col" indexVar="idx">
+                    <th scope="col" class="{!col.class}"><span class="slds-truncate">{!col.label}</span></th>  
+                </aura:iteration>
+            </tr>
+        </thead>
+        <tbody >
+            <aura:iteration items="{!v.rows}" var="row" indexVar="idx">
+                <tr class="slds-hint-parent" data-row="{!idx}" data-pk="{!row.pk}" onclick="{!c.onRowClick}">
+                    <aura:iteration items="{!row.data}" var="colData">
+                        <td class="{!colData.class}"  data-label="{!colData.label}">
+                            <span class="slds-truncate">
+                                <aura:if isTrue="{!colData.type == 'phone'}">
+                                    <lightning:formattedPhone value="{!colData.value}" />
+                                    <aura:set attribute="else">
+                                        <aura:if isTrue="{!colData.type == 'email'}">
+                                            <lightning:formattedEmail value="{!colData.value}" />
+                                            <aura:set attribute="else">
+                                                {!colData.value}
+                                            </aura:set>
+                                        </aura:if>
+                                    </aura:set>
+                                </aura:if>
+                            </span>
+                        </td>
+                    </aura:iteration>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Rambla';
+    src: url('/resource/fwb/rambla/Rambla-Regular.otf');
+}
+
+.THIS .fwbheader {
+    background-image: url('/resource/fwb/top-grain.png'), -webkit-radial-gradient(top center, circle, #9f5628, #5d2f17);
+    background-repeat: repeat-x;
+    color: #3a1515;
+    text-shadow: 0px 1px rgba(255,255,255,.3);
+    height: 50px;
+    width: 100%;
+    font-family: Rambla;
+    font-size: 1.5em !important;
+}
+
+.THIS {
+    background-image: url('/resource/fwb/background.png');
+    background-size: cover;
+}
+
+.THIS .mainbody {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.THIS.maxHeight {
+    height: 100%;
+}

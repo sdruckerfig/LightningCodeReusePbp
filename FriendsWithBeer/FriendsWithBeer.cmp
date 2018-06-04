@@ -1,0 +1,36 @@
+<aura:component implements="force:appHostable" >
+    
+    <aura:attribute name="beerId" type="String" access="private" />
+    <aura:attribute name="contactId" type="String" access="private" />
+   
+    
+    <lightning:layout horizontalAlign="space">
+    	<lightning:layoutItem padding="around-small" size="3">
+            <lightning:card title="Select a Beer">
+            	<c:FWB_BeerSelector mode="tree" onBeerSelected="{!c.onBeerSelected}" />
+            </lightning:card>
+        </lightning:layoutItem>
+        
+        <lightning:layoutItem flexibility="auto" padding="around-small" size="6">
+            <lightning:card title="Choose a Contact">
+            	<c:FWB_BeerContacts beerId="{!v.beerId}" oncontactselected="{!c.onContactSelected}"/>
+            </lightning:card>
+        </lightning:layoutItem>
+        
+        <lightning:layoutItem flexibility="auto" padding="around-small" size="3">
+            <lightning:card title="Contact Details">
+                <div class="slds-p-horizontal--small">
+            	<c:FWB_ContactInfo contactId="{!v.contactId}" />
+                </div>
+            </lightning:card>
+            
+             <lightning:card title="Select Beer For Contact">
+                <div class="slds-p-horizontal--small">
+            	<c:FWB_ContactSetBeer contactId="{!v.contactId}" />
+                </div>
+            </lightning:card>
+        </lightning:layoutItem>
+    </lightning:layout>
+    
+    
+</aura:component>

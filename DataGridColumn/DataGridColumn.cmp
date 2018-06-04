@@ -1,0 +1,32 @@
+<aura:component >
+	    
+    <aura:attribute name="type" 
+                    type="String" 
+                    required="false" 
+                    default="text"
+                    access="GLOBAL"
+                    description="Valid options: email,phone,text"/>
+    
+    <aura:attribute name="label" 
+                    type="String"  
+                    required="true"
+                    access="GLOBAL" />
+    
+     <aura:attribute name="fieldName" 
+                    type="String"  
+                    required="true"
+                    access="GLOBAL" />
+    
+    <aura:attribute name="class" 
+                    type="String"  
+                    required="false"
+                    access="GLOBAL" 
+                    default=""/>
+    
+    <aura:attribute name="hidden" 
+                    type="Boolean" 
+                    required="false" 
+                    default="false"
+                    access="GLOBAL"
+                    description="Hide Column in Phone view"/>
+</aura:component>

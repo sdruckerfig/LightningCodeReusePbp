@@ -1,0 +1,22 @@
+<aura:component extends="c:Base" controller="BeerContacts" >
+    <aura:attribute name="beerId" type="Id" access="public" />
+    <aura:attribute name="contacts" type="Contact[]" access="private" />
+    <aura:handler name="change" value="{!v.beerId}" action="{!c.onBeerIdChange}" />
+    
+    <c:DataGrid data="{!v.contacts}" pkField="Id">
+        
+        <c:DataGridColumn fieldName="Name" 
+                          label="Name" />
+        <c:DataGridColumn fieldName="Title" 
+                          label="Title" 
+                          hidden="true" />
+        <c:DataGridColumn fieldName="Phone" 
+                          label="Phone" 
+                          type="phone" />
+        <c:DataGridColumn fieldName="Email" 
+                          label="E-Mail" 
+                          type="email" />
+        
+    </c:DataGrid>
+    
+</aura:component>

@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Fired by DataGrid Event">
+     <aura:attribute name="Id" type="Id"/>   
+</aura:event>

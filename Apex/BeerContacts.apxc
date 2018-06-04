@@ -1,0 +1,22 @@
+public with sharing class BeerContacts {
+	
+    @AuraEnabled
+    public static List<Beer__c> getBeers() {
+      return [
+         select Id,Name,Type__c,Country__c
+         from Beer__c
+         order by Type__c,Name
+      ];
+    }
+    
+    @AuraEnabled
+    public static List<Contact> findContact(Id beerId) {
+       return [
+       	   select Id,Name,Title,Email,Phone
+           from Contact
+           where Beer__c = :beerId
+           order by Name
+       ];
+    }
+
+}

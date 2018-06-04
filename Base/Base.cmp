@@ -1,0 +1,8 @@
+<aura:component abstract="true">
+   
+    <div aura:id="modalspinner" 
+         class="slds-align--absolute-center slds-hide">    
+        <lightning:spinner variant="brand" size="small" />   
+    </div> 
+    {!v.body}
+</aura:component>

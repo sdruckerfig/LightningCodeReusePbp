@@ -1,0 +1,21 @@
+@media (max-width: 767px) {
+ .THIS .hiddenColumn {
+    display: none !important;
+ }
+}
+
+.THIS .slds-is-selected {
+    font-weight: bold;
+}
+
+
+@media (max-width: 48em) {
+
+ .THIS.nolabels.slds-max-medium-table_stacked th:before, 
+ .THIS.nolabels.slds-max-medium-table_stacked td:before, 
+ .THIS.nolabels.slds-max-medium-table--stacked th:before, 
+ .THIS.nolabels.slds-max-medium-table--stacked td:before {
+    content: '' !important;    
+ }
+    
+}
